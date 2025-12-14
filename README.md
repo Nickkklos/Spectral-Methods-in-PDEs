@@ -1,2 +1,2 @@
 # Spectral-Methods-in-PDEs
-The MATLAB codes for the module MA395 at University of Warwick
+These are the MATLAB codes I created and used for my third-year essay at Warwick Mathematics Institute.
