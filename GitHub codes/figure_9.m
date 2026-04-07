@@ -51,5 +51,5 @@ for i = 1:4
     plot(xx,pp,'r-'), title(['N = ' num2str(N)])
     text(-1.3,-8,['max error is ',num2str(max_err)])
     plot(xx,trueprime,'b-'), grid on
-    legend('gird value','Chebyshev fit', 'True function')
+    legend('gird value','Chebyshev interpolant', 'True function')
 end
