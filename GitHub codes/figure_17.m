@@ -1,5 +1,6 @@
 %% 2D Poisson on [-1,1]^2 with homogeneous Dirichlet BC
-% Finite Difference (2nd order) version of your spectral code
+% Second-order finite-difference counterpart of figure_16.m (same problem and exact solution).
+% Written with the assistance of a generative AI tool.
 
 N = 128;                 % number of subintervals in each direction
 h = 2/N;
