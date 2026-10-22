@@ -1,40 +1,6 @@
 %% 2D Poisson on [-1,1]^2 (Chebyshev collocation) + barycentric plotting
 clear; close all; clc
-
-function [D,x]=cheb(N)
-if N==0,D=0;x=1;return,end
-x=cos(pi*(0:N)/N)';
-c=[2;ones(N-1,1);2].*(-1).^(0:N)';
-X=repmat(x,1,N+1);
-dX=X-X';
-D=(c*(1./c)')./(dX+(eye(N+1)));
-D=D-diag(sum(D'));
-end
-
-function p = barycheb1(x, f, xx)
-N = length(x)-1;
-w = ones(N+1,1);
-w(1)   = 0.5;
-w(end) = 0.5;
-w = w .* (-1).^(0:N)';
-
-p = zeros(size(xx));
-for k = 1:numel(xx)
-    dif = xx(k) - x;
-    j = find(abs(dif) < 1e-14, 1);
-    if ~isempty(j)
-        p(k) = f(j);
-    else
-        tmp = w ./ dif;
-        p(k) = (tmp.'*f) / sum(tmp);
-    end
-end
-end
-
-
-
-
-
+% Uses cheb.m and barycheb1.m from this folder.
 
 N = 14;
 [D,x] = cheb(N);  y = x;
