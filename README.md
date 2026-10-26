@@ -6,15 +6,21 @@ The essay studies Fourier and Chebyshev pseudospectral methods and compares them
 
 ## Key results
 
-- **Neumann problem −Δu + u = f on [−1,1]² (Figures 19–20).** Chebyshev collocation reaches a maximum error of about 10⁻¹³ with N = 24; P1 finite elements on a uniform mesh with N = 24 reach a nodal error of about 10⁻³.
-- **Poisson equation on the unit disk (Figure 21).** With Fourier order M = 24 the error decays exponentially in the Chebyshev order N to near machine precision (about 10⁻¹⁴); with M = 18 it stagnates, so the angular resolution limits the accuracy.
+`key_results.m` in `GitHub codes/` prints the numbers in the first two items in a few seconds, without plots.
+
+- **Neumann problem −Δu + u = f on [−1,1]² with a smooth exact solution (Figures 19–20).** With the same 625 nodes (N = 24 in each direction), the maximum nodal error is about 10⁻¹³ for Chebyshev collocation (rounding level, so the exact value varies slightly between machines) and 7.9 × 10⁻³ for P1 finite elements. This compares accuracy on one smooth test problem, not computational cost.
+- **Poisson equation on the unit disk (Figure 21, below).** With Fourier order M = 24 the maximum error decays exponentially in the Chebyshev order N, from 4 × 10⁻⁹ at N = 25 to 4 × 10⁻¹⁵ at N = 39. With M = 18 it levels off at about 7 × 10⁻¹² from N = 33 onwards, so the angular resolution limits the accuracy.
 - **Regularity and convergence (Figure 10).** The convergence rate of Chebyshev differentiation improves from algebraic to exponential as the regularity of the test function increases.
+
+![Maximum error against the Chebyshev order N for the Poisson equation on the unit disk, with Fourier orders M = 24 and M = 18](figures/disk_poisson_convergence.png)
+
+*Essay Figure 21, produced by `figure_21.m`: maximum error against the Chebyshev order N for Fourier order M = 24 (top) and M = 18 (bottom).*
 
 ## Sources and use of AI
 
 Several scripts follow programs from L. N. Trefethen, *Spectral Methods in MATLAB* (SIAM, 2000), as acknowledged in the essay; the table gives the source of each script. `cheb.m` is Trefethen's routine. The finite-difference and finite-element comparisons, the Neumann problem on the square, the manufactured solutions and the convergence studies were written for the essay.
 
-As stated in the essay, generative AI was used to help with plotting in some scripts. `figure_17.m` was also written with the assistance of a generative AI tool.
+As stated in the essay, generative AI was used to help with plotting in some scripts. `figure_17.m` was also written with the assistance of a generative AI tool. `key_results.m` was added in October 2026, after the essay, with the assistance of a generative AI tool; it repeats the computations of `figure_19.m`, `figure_20.m` and `figure_21.m` without plotting.
 
 | Script | Essay figure | What it computes | Source |
 | --- | --- | --- | --- |
@@ -36,10 +42,11 @@ As stated in the essay, generative AI was used to help with plotting in some scr
 | `figure_20.m` | 20 | Same problem with P1 finite elements | Written for the essay |
 | `figure_21.m` | 21 | Poisson equation on the unit disk (Fourier–Chebyshev); convergence in N for M = 18 and 24 | Discretisation follows Program 29; manufactured solution and convergence study written for the essay |
 | `figure_23.m` | 23 | Fourier differentiation via the FFT | Adapted from Program 5 |
+| `key_results.m` | 19–21 | Prints the numbers under Key results | Added after the essay with the assistance of a generative AI tool; same computations as `figure_19.m`, `figure_20.m` and `figure_21.m` |
 
 ## Running
 
-The scripts are in `GitHub codes/`. In MATLAB, change to that folder and run a script by name, for example `figure_21`. `figure_21.m` defines a local function, which requires MATLAB R2016b or later.
+The scripts are in `GitHub codes/`. In MATLAB, change to that folder and run a script by name, for example `figure_21`; `key_results` prints the numbers under Key results. `figure_21.m` defines a local function, which requires MATLAB R2016b or later.
 
 ## References
 
