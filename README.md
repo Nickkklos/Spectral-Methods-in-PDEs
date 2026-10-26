@@ -9,7 +9,7 @@ The essay studies Fourier and Chebyshev pseudospectral methods and compares them
 `key_results.m` in `GitHub codes/` prints the numbers in the first two items in a few seconds, without plots.
 
 - **Neumann problem −Δu + u = f on [−1,1]² with a smooth exact solution (Figures 19–20).** With the same 625 nodes (N = 24 in each direction), the maximum nodal error is about 10⁻¹³ for Chebyshev collocation (rounding level, so the exact value varies slightly between machines) and 7.9 × 10⁻³ for P1 finite elements. This compares accuracy on one smooth test problem, not computational cost.
-- **Poisson equation on the unit disk (Figure 21, below).** With Fourier order M = 24 the maximum error decays exponentially in the Chebyshev order N, from 4 × 10⁻⁹ at N = 25 to 4 × 10⁻¹⁵ at N = 39. With M = 18 it levels off at about 7 × 10⁻¹² from N = 33 onwards, so the angular resolution limits the accuracy.
+- **Poisson equation on the unit disk (Figure 21, below).** With Fourier order M = 24 the maximum error decays exponentially in the Chebyshev order N, from 4 × 10⁻⁹ at N = 25 to below 10⁻¹⁴ at N = 39. With M = 18 it levels off at about 7 × 10⁻¹² from N = 33 onwards, so the angular resolution limits the accuracy.
 - **Regularity and convergence (Figure 10).** The convergence rate of Chebyshev differentiation improves from algebraic to exponential as the regularity of the test function increases.
 
 ![Maximum error against the Chebyshev order N for the Poisson equation on the unit disk, with Fourier orders M = 24 and M = 18](figures/disk_poisson_convergence.png)
